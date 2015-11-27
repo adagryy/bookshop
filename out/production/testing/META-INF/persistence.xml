@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="persistence.cfg.xml">
+        <class>models.BooksEntity</class>
+        <class>models.KategoriaEntity</class>
+        <class>models.KsiazkiZamowioneEntity</class>
+        <class>models.WydawnictwoEntity</class>
+        <class>models.ZamowienieEntity</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/bookstore"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username"/>
+            <property name="hibernate.connection.password"/>
+        </properties>
+    </persistence-unit>
+</persistence>
