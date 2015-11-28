@@ -1,3 +1,6 @@
+
+
+import models.KategoriaEntity;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.Session;
@@ -34,6 +37,7 @@ public class Main {
 
     public static void main(final String[] args) throws Exception {
         final Session session = getSession();
+
         try {
             System.out.println("querying all the managed entities...");
             final Map metadataMap = session.getSessionFactory().getAllClassMetadata();
@@ -46,6 +50,9 @@ public class Main {
                     System.out.println("  " + o);
                 }
             }
+
+
+
         } finally {
             session.close();
         }
