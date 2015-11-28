@@ -1,53 +1,91 @@
+import models.BooksEntity;
 import models.KategoriaEntity;
-import org.hibernate.HibernateException;
-import org.hibernate.SessionFactory;
-import org.hibernate.Session;
-import org.hibernate.Query;
+import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 /**
  * Created by ekot on 21.11.15.
  */
 public class Main {
-    private static final SessionFactory ourSessionFactory;
-    private static final ServiceRegistry serviceRegistry;
+    public static void main(final String[] args) throws Exception {
+        Main m = new Main();
 
-    static {
+        BooksEntity be = new BooksEntity();
+
+        int record = 4;//numer rekordu w tabeli do wpisywania lub updateowania
+
+        be.setId(record);
+        be.setTitle("The lord of the Rings");
+        be.setAuthor("Jakis tam");
+        be.setPrice(new BigDecimal(9.99));
+        be.setKategoria(2);
+        be.setWydawnictwo_id(3);
+
+        m.addRecord(be);
+
+        //m.updateRecord(be);
+
+        //m.deleteRecord(record);
+    }
+
+    public void addRecord(BooksEntity be) {
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            Configuration configuration = new Configuration();
-            configuration.configure();
-
-            serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
-            ourSessionFactory = configuration.buildSessionFactory(serviceRegistry);
-        } catch (Throwable ex) {
-            throw new ExceptionInInitializerError(ex);
+            trns = session.beginTransaction();
+            session.save(be);
+            session.getTransaction().commit();
+        } catch (RuntimeException e) {
+            if (trns != null) {
+                trns.rollback();
+            }
+            e.printStackTrace();
+            //System.out.println("Error");
+        } finally {
+            session.flush();
+            session.close();
         }
     }
 
-    public static Session getSession() throws HibernateException {
-        return ourSessionFactory.openSession();
+    public void deleteRecord(int record_id) {
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            BooksEntity be = (BooksEntity) session.load(BooksEntity.class, new Integer(record_id));
+            session.delete(be);
+            session.getTransaction().commit();
+        } catch (RuntimeException e) {
+            if (trns != null) {
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
     }
 
-    public static void main(final String[] args) throws Exception {
-        final Session session = getSession();
+    public void updateRecord(BooksEntity be) {
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            System.out.println("querying all the managed entities...");
-            final Map metadataMap = session.getSessionFactory().getAllClassMetadata();
-            for (Object key : metadataMap.keySet()) {
-                final ClassMetadata classMetadata = (ClassMetadata) metadataMap.get(key);
-                final String entityName = classMetadata.getEntityName();
-                final Query query = session.createQuery("from " + entityName);
-                System.out.println("executing: " + query.getQueryString());
-                for (Object o : query.list()) {
-                    System.out.println("  " + o);
-                }
+            trns = session.beginTransaction();
+            session.update(be);
+            session.getTransaction().commit();
+        } catch (RuntimeException e) {
+            if (trns != null) {
+                trns.rollback();
             }
+            e.printStackTrace();
         } finally {
+            session.flush();
             session.close();
         }
     }

@@ -13,6 +13,8 @@ public class BooksEntity {
     private String title;
     private String author;
     private BigDecimal price;
+    private int wydawnictwo_id;
+    private int kategoria;
 
     @Id
     @Column(name = "id")
@@ -54,6 +56,19 @@ public class BooksEntity {
         this.price = price;
     }
 
+    @Basic
+    @Column(name = "wydawnictwo_id")
+    public int getWydawnictwo_id(){return wydawnictwo_id;}
+    public void setWydawnictwo_id(int wydawnictwo_id){
+        this.wydawnictwo_id = wydawnictwo_id;
+    }
+
+    @Basic
+    @Column(name = "kategoria")
+    public int getKategoria(){return kategoria;}
+    public void setKategoria(int kategoria){
+        this.kategoria = kategoria;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
