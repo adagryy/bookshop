@@ -1,13 +1,8 @@
 import models.BooksEntity;
-import models.KategoriaEntity;
-import org.hibernate.*;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.metadata.ClassMetadata;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.math.BigDecimal;
-import java.util.Map;
 
 /**
  * Created by ekot on 21.11.15.
@@ -18,7 +13,7 @@ public class Main {
 
         BooksEntity be = new BooksEntity();
 
-        int record = 6;//numer rekordu w tabeli do wpisywania lub updateowania
+        int record = 8;//numer rekordu w tabeli do wpisywania lub updateowania
 
         be.setId(record);
         be.setTitle("The lord of the Rings");
