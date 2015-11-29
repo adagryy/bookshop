@@ -18,7 +18,7 @@ public class Main {
 
         BooksEntity be = new BooksEntity();
 
-        int record = 4;//numer rekordu w tabeli do wpisywania lub updateowania
+        int record = 6;//numer rekordu w tabeli do wpisywania lub updateowania
 
         be.setId(record);
         be.setTitle("The lord of the Rings");
