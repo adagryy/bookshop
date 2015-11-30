@@ -1,6 +1,15 @@
+import com.sun.prism.impl.Disposer;
 import models.BooksEntity;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import java.math.BigDecimal;
 
@@ -13,7 +22,7 @@ public class Main {
 
         BooksEntity be = new BooksEntity();
 
-        int record = 8;//numer rekordu w tabeli do wpisywania lub updateowania
+        int record = 10;//numer rekordu w tabeli do wpisywania lub updateowania
 
         be.setId(record);
         be.setTitle("The lord of the Rings");
@@ -27,6 +36,47 @@ public class Main {
         //m.updateRecord(be);
 
         //m.deleteRecord(record);
+
+        System.out.println(m.getRecordById(5));
+
+        for (BooksEntity iter : m.getAllRecords()) {
+            System.out.println(iter);
+        }
+    }
+
+    public List<BooksEntity> getAllRecords(){
+        List<BooksEntity> books = new ArrayList<BooksEntity>();
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            books = session.createQuery("from books").list();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
+        return books;
+    }
+
+    public BooksEntity getRecordById(int record_id){
+        BooksEntity book = null;
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            String queryString = "from books where id = :id";
+            Query query = session.createQuery(queryString);
+            query.setInteger("id", record_id);
+            book = (BooksEntity) query.uniqueResult();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
+        return book;
     }
 
     public void addRecord(BooksEntity be) {
