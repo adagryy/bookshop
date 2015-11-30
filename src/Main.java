@@ -3,14 +3,12 @@ import models.BooksEntity;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-
 import java.math.BigDecimal;
 
 /**
@@ -21,7 +19,7 @@ public class Main {
         Main m = new Main();
         BooksEntity be = new BooksEntity();
 
-        int record = 15;//numer rekordu w tabeli do wpisywania lub updateowania
+        int record = 16;//numer rekordu w tabeli do wpisywania lub updateowania
 
         be.setId(record);
         be.setTitle("The lord of the Rings");
@@ -29,51 +27,11 @@ public class Main {
         be.setPrice(new BigDecimal(9.99));
         be.setKategoria(2);
         be.setWydawnictwo_id(3);
-        m.get(8);
-        //m.addRecord(be);
-        //m.updateRecord(be);
-
-        //m.deleteRecord(record);
-//        System.out.println(m.getRecordById(5));
-//        for (BooksEntity iter : m.getAllRecords()) {
-//            System.out.println(iter);
-//        }
+//        m.get(8);
+//        m.addRecord(be);
+//        m.updateRecord(be);
+        m.deleteRecord(19);
     }
-
-//    public List<BooksEntity> getAllRecords(){
-//        List<BooksEntity> books = new ArrayList<BooksEntity>();
-//        Transaction trns = null;
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        try {
-//            trns = session.beginTransaction();
-//            books = session.createQuery("from books").list();
-//        } catch (RuntimeException e) {
-//            e.printStackTrace();
-//        } finally {
-//            session.flush();
-//            session.close();
-//        }
-//        return books;
-//    }
-
-//    public BooksEntity getRecordById(int record_id){
-//        BooksEntity book = null;
-//        Transaction trns = null;
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        try {
-//            trns = session.beginTransaction();
-//            String queryString = "from books where id = :id";
-//            Query query = session.createQuery(queryString);
-//            query.setInteger("id", record_id);
-//            book = (BooksEntity) query.uniqueResult();
-//        } catch (RuntimeException e) {
-//            e.printStackTrace();
-//        } finally {
-//            session.flush();
-//            session.close();
-//        }
-//        return book;
-//    }
 
     public Integer addRecord(BooksEntity be) {
         Transaction trns = null;
@@ -114,12 +72,12 @@ public class Main {
         }
     }
 
-    public void updateRecord(BooksEntity be) {
+    public void updateRecord(BooksEntity book) {
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             trns = session.beginTransaction();
-            session.update(be);
+            session.update(book);
             session.getTransaction().commit();
         } catch (RuntimeException e) {
             if (trns != null) {
@@ -131,6 +89,7 @@ public class Main {
             session.close();
         }
     }
+
     public BooksEntity get(Integer id) {
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -148,9 +107,25 @@ public class Main {
             session.flush();
             session.close();
         }
-        System.out.println(returned.getAuthor());
-        System.out.println(returned.getKategoria());
-        System.out.println(returned.getTitle());
         return returned;
+    }
+    public List list() {
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List objects = new LinkedList();
+        try {
+            trns = session.beginTransaction();
+            objects = session.createQuery("FROM BooksEntity").list();
+            session.getTransaction().commit();
+        } catch (RuntimeException e) {
+            if (trns != null) {
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
+        return objects;
     }
 }
