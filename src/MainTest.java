@@ -22,7 +22,10 @@ public class MainTest {
 
         // get
         BooksEntity bookFromDb = m.get(id);
-        validate(book, bookFromDb);
+
+        assertEquals(book.getAuthor(), bookFromDb.getAuthor());
+        assertEquals(book.getKategoria(), bookFromDb.getKategoria());
+        //validate(book, bookFromDb);
     }
 
     @org.junit.Test
@@ -68,10 +71,10 @@ public class MainTest {
         return book;
     }
 
-    private void validate(BooksEntity expected, BooksEntity actual){
-        assertEquals(expected.getAuthor(), actual.getAuthor());
-        assertEquals(expected.getKategoria(), actual.getKategoria());
-    }
+//    private void validate(BooksEntity expected, BooksEntity actual){
+//        assertEquals(expected.getAuthor(), actual.getAuthor());
+//        assertEquals(expected.getKategoria(), actual.getKategoria());
+//    }
 
 
 
