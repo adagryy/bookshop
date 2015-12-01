@@ -1,14 +1,16 @@
 import com.sun.prism.impl.Disposer;
 import models.BooksEntity;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.*;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Property;
+
 import java.math.BigDecimal;
 
 /**
@@ -19,18 +21,18 @@ public class Main {
         Main m = new Main();
         BooksEntity be = new BooksEntity();
 
-        int record = 16;//numer rekordu w tabeli do wpisywania lub updateowania
+        //int record = 7;//numer rekordu w tabeli do wpisywania lub updateowania
 
-        be.setId(record);
+        //be.setId(record);
         be.setTitle("The lord of the Rings");
         be.setAuthor("Jakis tam");
         be.setPrice(new BigDecimal(9.99));
         be.setKategoria(2);
         be.setWydawnictwo_id(3);
 //        m.get(8);
-//        m.addRecord(be);
+        m.addRecord(be);
 //        m.updateRecord(be);
-        m.deleteRecord(19);
+       // m.deleteRecord(22);
     }
 
     public Integer addRecord(BooksEntity be) {
@@ -58,9 +60,13 @@ public class Main {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             trns = session.beginTransaction();
-            BooksEntity be = (BooksEntity) session.load(BooksEntity.class, new Integer(record_id));
-            session.delete(be);
-            session.getTransaction().commit();
+            try {
+                BooksEntity be = (BooksEntity) session.load(BooksEntity.class, new Integer(record_id));
+                session.delete(be);
+                session.getTransaction().commit();
+            }catch (HibernateException e){
+                System.out.println("Error while deleting data");
+            }
         } catch (RuntimeException e) {
             if (trns != null) {
                 trns.rollback();

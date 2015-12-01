@@ -16,7 +16,7 @@ public class BooksEntity {
     private int wydawnictwo_id;
     private int kategoria;
 
-    @Id
+    @Id @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;
