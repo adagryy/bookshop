@@ -21,18 +21,18 @@ public class Main {
         Main m = new Main();
         BooksEntity be = new BooksEntity();
 
-        //int record = 7;//numer rekordu w tabeli do wpisywania lub updateowania
+//        int record = 700;//numer rekordu w tabeli do wpisywania lub updateowania
 
-        //be.setId(record);
+//        be.setId(record);
         be.setTitle("The lord of the Rings");
         be.setAuthor("Jakis tam");
         be.setPrice(new BigDecimal(9.99));
         be.setKategoria(2);
         be.setWydawnictwo_id(3);
 //        m.get(8);
-        m.addRecord(be);
+//        m.addRecord(be);
 //        m.updateRecord(be);
-       // m.deleteRecord(22);
+        m.deleteRecord(220);
     }
 
     public Integer addRecord(BooksEntity be) {
@@ -59,13 +59,13 @@ public class Main {
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            trns = session.beginTransaction();
-            try {
+            try{
+                trns = session.beginTransaction();
                 BooksEntity be = (BooksEntity) session.load(BooksEntity.class, new Integer(record_id));
                 session.delete(be);
                 session.getTransaction().commit();
             }catch (HibernateException e){
-                System.out.println("Error while deleting data");
+                System.out.println("Error while deleting data. Possibly incorrect input");
             }
         } catch (RuntimeException e) {
             if (trns != null) {
@@ -73,8 +73,12 @@ public class Main {
             }
             e.printStackTrace();
         } finally {
-            session.flush();
-            session.close();
+            try {
+                session.flush();
+                session.close();
+            }catch(HibernateException e){
+            System.out.println("Something went wrong while row updating process");
+        }
         }
     }
 
@@ -82,17 +86,25 @@ public class Main {
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            trns = session.beginTransaction();
-            session.update(book);
-            session.getTransaction().commit();
+            try {
+                trns = session.beginTransaction();
+                session.update(book);
+                session.getTransaction().commit();
+            }catch(HibernateException e){
+                    System.out.println("Error while updating data! Possibly incorrect input");
+                }
         } catch (RuntimeException e) {
             if (trns != null) {
                 trns.rollback();
             }
             e.printStackTrace();
         } finally {
+            try {
             session.flush();
             session.close();
+            }catch(HibernateException e){
+                System.out.println("Something went wrong while row updating process");
+            }
         }
     }
 

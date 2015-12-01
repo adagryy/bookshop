@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fd4d7706-1f95-4baf-9999-fe17bc9463d0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainTest.java" afterPath="$PROJECT_DIR$/src/MainTest.java" />
     </list>
     <ignored path="bookshop.iws" />
@@ -76,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+              <caret line="23" column="82" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -85,8 +86,8 @@
       <file leaf-file-name="MainTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.0478013">
-              <caret line="73" column="0" selection-start-line="73" selection-start-column="2" selection-end-line="76" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.3499044">
+              <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -173,8 +174,8 @@
         <option value="$PROJECT_DIR$/src/test/MainTest.java" />
         <option value="$PROJECT_DIR$/src/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/models/BooksEntity.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/MainTest.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -278,9 +279,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -382,7 +383,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MainTest.testAddRecord">
+  <component name="RunManager" selected="JUnit.MainTest.testUpdateRecord">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -906,10 +907,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.MainTest.testAddRecord" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.MainTest.testUpdateRecord" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.MainTest.testUpdateRecord" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.MainTest.testDeleteRecord" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.MainTest.testAddRecord" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.MainTest" />
       </list>
     </recent_temporary>
@@ -934,47 +935,48 @@
       <workItem from="1448831601832" duration="284000" />
       <workItem from="1448923501945" duration="1597000" />
       <workItem from="1448971256549" duration="7733000" />
-      <workItem from="1448983068021" duration="146000" />
+      <workItem from="1448983068021" duration="715000" />
+      <workItem from="1448984165768" duration="2310000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MainTest_testAddRecord - 2015.12.01 at 16h 18m 42s.xml">
-      <configuration name="MainTest.testAddRecord" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainTest_testAddRecord - 2015.12.01 at 16h 19m 04s.xml">
-      <configuration name="MainTest.testAddRecord" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainTest_testAddRecord - 2015.12.01 at 16h 20m 02s.xml">
-      <configuration name="MainTest.testAddRecord" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 15h 45m 14s.xml">
+    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 17h 01m 41s.xml">
       <configuration name="MainTest.testUpdateRecord" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 15h 50m 45s.xml">
+    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 17h 04m 20s.xml">
       <configuration name="MainTest.testUpdateRecord" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 15h 51m 15s.xml">
+    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 17h 04m 43s.xml">
       <configuration name="MainTest.testUpdateRecord" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 15h 52m 24s.xml">
+    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 17h 05m 55s.xml">
       <configuration name="MainTest.testUpdateRecord" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 15h 52m 28s.xml">
+    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 17h 06m 10s.xml">
       <configuration name="MainTest.testUpdateRecord" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 16h 00m 37s.xml">
+    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 17h 06m 42s.xml">
       <configuration name="MainTest.testUpdateRecord" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 16h 00m 40s.xml">
+    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 17h 06m 53s.xml">
+      <configuration name="MainTest.testUpdateRecord" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 17h 06m 59s.xml">
+      <configuration name="MainTest.testUpdateRecord" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 17h 07m 40s.xml">
+      <configuration name="MainTest.testUpdateRecord" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainTest_testUpdateRecord - 2015.12.01 at 17h 14m 44s.xml">
       <configuration name="MainTest.testUpdateRecord" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39364000" />
+    <option name="totallyTimeSpent" value="42243000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1402,14 +1404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/BooksEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/7972c4d3/f4da4876-cd6b-4b9d-a7ab-ce673e87a9f1/bookstore.books">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1422,18 +1416,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/BooksEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+          <caret line="23" column="82" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="82" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0478013">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="2" selection-end-line="76" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.3499044">
+          <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
           <folding />
         </state>
       </provider>

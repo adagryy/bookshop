@@ -33,6 +33,10 @@ public class MainTest {
         BooksEntity book = createBook("Finlandium lewiosa", "Aleksander Kwasniewski");
         Integer id = m.addRecord(book);
 
+//        int id = -500;
+//
+//        BooksEntity book = m.get(id);
+
         assertNotNull(book); //sprawdzammy, czy jest obiekt o identyfikatorze id NIE jest null
         // delete
         m.deleteRecord(id);
@@ -44,11 +48,14 @@ public class MainTest {
 
     @org.junit.Test
     public void testUpdateRecord() throws Exception {
-        BooksEntity updatedBook = createBook("Die another day", "James Bond");
+        BooksEntity updatedBook = createBook("Die another day1", "James Bond1");
 
-        int id = 2;
+        int id = 200;
 
         BooksEntity book = m.get(id);//bierzemy "stary" wiersz
+
+        assertNotNull(book);
+
         updatedBook.setId(id);
 
         //updating
