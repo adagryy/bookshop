@@ -37,7 +37,7 @@ public class MainTest {
 //
 //        BooksEntity book = m.get(id);
 
-        assertNotNull(book); //sprawdzammy, czy jest obiekt o identyfikatorze id NIE jest null
+        assertNotNull(m.get(id)); //sprawdzammy, czy jest obiekt o identyfikatorze id NIE jest null
         // delete
         m.deleteRecord(id);
 

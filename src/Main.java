@@ -1,3 +1,4 @@
+import com.sun.jmx.snmp.daemon.CommunicationException;
 import com.sun.prism.impl.Disposer;
 import models.BooksEntity;
 import org.hibernate.*;
@@ -30,9 +31,9 @@ public class Main {
         be.setKategoria(2);
         be.setWydawnictwo_id(3);
 //        m.get(8);
-//        m.addRecord(be);
+        m.addRecord(be);
 //        m.updateRecord(be);
-        m.deleteRecord(220);
+//        m.deleteRecord(220);
     }
 
     public Integer addRecord(BooksEntity be) {
@@ -121,7 +122,8 @@ public class Main {
                 trns.rollback();
             }
             e.printStackTrace();
-        } finally {
+        }
+        finally {
             session.flush();
             session.close();
         }
