@@ -12,3 +12,5 @@ Database schema:
 ![alt tag](https://github.com/adagryy/bookshop/blob/master/diagram.png)
 
 Tests: Run in Intellij: Ctrl + Shift + F10.
+
+5. [Adam] I've added the last test (for 'updateRecord(...)).
